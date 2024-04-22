@@ -87,5 +87,11 @@ namespace TodoApi.Services
             );
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+        public int GetIdentifier(ClaimsPrincipal principal)
+        {
+            string value = principal.Claims.FirstOrDefault(claim => claim.Type == ClaimTypes.NameIdentifier)!.Value;
+            return int.Parse(value);
+        }
     }
 }

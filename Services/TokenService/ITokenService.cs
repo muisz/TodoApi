@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using TodoApi.Data;
 using TodoApi.Models;
 
@@ -9,5 +10,6 @@ namespace TodoApi.Services
         public string CreateAccessToken(User user);
         public string CreateRefreshToken(User user);
         public Token Refresh(string token);
+        public int GetIdentifier(ClaimsPrincipal principal);
     }
 }

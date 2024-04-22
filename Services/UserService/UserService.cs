@@ -27,6 +27,7 @@ namespace TodoApi.Services
                 Name = user.Name,
                 Email = user.Email.ToLower(),
                 Password = _hasher.Hash(user.Password),
+                CreatedAt = DateTime.Now.ToUniversalTime(),
             };
             await _userRepository.Create(newUser);
             return newUser;
